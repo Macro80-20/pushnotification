@@ -34,7 +34,7 @@ if (!('Notification' in window)) {
    if (Notification.permission == 'granted') {
   navigator.serviceWorker.getRegistration().then(reg => {
 
-    // TODO 2.4 - Add 'options' object to configure the notification
+  // TODO 2.4 - Add 'options' object to configure the notification
     const options = {
   body: 'First notification!',
   icon: 'images/notification-flat.png',
@@ -42,11 +42,13 @@ if (!('Notification' in window)) {
   data: {
     dateOfArrival: Date.now(),
     primaryKey: 1
-  },
-
-  // TODO 2.5 - add actions to the notification
-
-  // TODO 5.1 - add a tag to the notification
+  },// TODO 2.5 - add actions to the notification
+actions: [
+  {action: 'explore', title: 'Go to the site',
+    icon: 'images/checkmark.png'},
+  {action: 'close', title: 'Close the notification',
+    icon: 'images/xmark.png'},
+] ,// TODO 5.1 - add a tag to the notification
 
 };
     reg.showNotification("Hello world",options);
@@ -149,3 +151,5 @@ if (!('Notification' in window)) {
   }
 
 })();
+
+

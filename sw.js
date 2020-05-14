@@ -14,7 +14,25 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+self.addEventListener('install', event => {
+  console.log('Service worker installing...');
+  // Add a call to skipWaiting here
+self.skipWaiting();
+  /// good place for caching assets 
+});
+self.addEventListener('activate', event => {
+  console.log('Service worker activating...');
+});
+// When the user closes a notification, 
+// a notificationclose event is triggered in the service worker.
 // TODO 2.6 - Handle the notificationclose event
+self.addEventListener('notificationclose', event => {
+  const notification = event.notification;
+  console.log('notification :', notification);
+  const primaryKey = notification.data.primaryKey;
+
+  console.log('Closed notification: ' + primaryKey);
+});
 
 // TODO 2.7 - Handle the notificationclick event
 
