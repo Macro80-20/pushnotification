@@ -58,7 +58,10 @@ actions: [
  notifyButton.addEventListener('click', () => {
     displayNotification();
   });
+ 
+ 
   function initializeUI() {
+
 
     // TODO 3.3b - add a click event listener to the "Enable Push" button
     // and get the subscription object
